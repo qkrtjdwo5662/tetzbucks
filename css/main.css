@@ -23,6 +23,30 @@ img {
     'opsz' 24
 }
 
+.strong{
+    font-weight: 800;
+}
+.btn{
+    display: inline-block;
+    padding: 6px 20px;
+    border: 2px solid currentColor;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.btn--light-green{
+    color : #076443;
+    border-color: #076443;
+    transition: 0.6s;
+}
+
+.btn--light-green:hover{
+    background-color: #076443;
+    border-color: black;
+    color : white;
+    text-decoration: underline;
+}
+/* header */
 header{
     position: fixed;
     width: 100%;
@@ -34,12 +58,14 @@ header{
 }
 
 
-header .inner{
+.inner{
     position: relative;
     width: 1100px;
-    height: 120px;
     margin: 0 auto;
-    background-color: #f6f5ef;
+}
+
+header > .inner{
+    height: 120px;
 }
 
 header .inner .logo{
@@ -81,7 +107,7 @@ header .inner .sub-menu .sub-menu__menu > li:not(:first-child)::before{
     background-color: #e5e5e5;
 }
 
-header .inner .sub-menu .sub-menu__menu > li > a{
+header .inner .sub-menu ul.sub-menu__menu > li > a{
     display: block;
     padding: 10px 15px;
     font-size: 13px;
@@ -151,15 +177,310 @@ header .inner .main-menu .item:hover .item__name{
 
 
 header .inner .main-menu .item .item__contents{
-    display: none;
-    position: fixed;
-    background-color: black;
-    color: white;
-    width: 100%;
-    height: 100px;
-    left: 0;
-    top: 120px;
+   position: fixed;
+   width: 100%;
+   left: 0;
+   top:120px;
+   display: none;
+   /* transform: scaleY(0);
+   transition: 0.5s; */
+   
 }
-header .inner .main-menu .item:hover .item__contents{
+header .inner .main-menu .item:hover .item__contents {
+    /* transform: scaleY(1); */
     display: block;
+    /*이걸 해야지 hover상태에 밑에 메뉴 눌러도 hover가 해제 안됨*/
+}
+
+header .inner .main-menu .item .item__contents .item__contents__menu {
+    background-color: #2C2A29;
+    padding: 20px 0px;
+}
+
+header .inner .main-menu .item .item__contents .item__contents__menu .inner {
+    display: flex;
+}
+
+header .inner .main-menu .item .item__contents .item__contents__menu .inner>li {
+    width: 200px;
+    padding-right: 20px;
+    /*width 1100px를 5로 나눔 하나에 220px을 갖게끔*/
+}
+
+header .inner .main-menu .item .item__contents .item__contents__menu .inner>li>a {
+    display: block;
+    /*이걸 해줘야 margin과 padding 값이 적용됨*/
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+}
+
+header .inner .main-menu .item .item__contents .item__contents__menu .inner>li>a:hover {
+    text-decoration: underline;
+}
+
+header .inner .main-menu .item .item__contents .item__contents__menu .inner>li>ul {}
+
+header .inner .main-menu .item .item__contents .item__contents__menu .inner>li>ul>li {
+    color: #999;
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+header .inner .main-menu .item .item__contents .item__contents__menu .inner>li>ul>li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* badges */
+header .badges{
+    position: absolute;
+    top:150px;
+    /* right: 0; */
+    left : calc(1000px + (100vw - 1100px)/2)
+}
+
+header .badges .badge{
+    cursor: pointer;
+}
+
+header .badges .badge .a{}
+
+header .badges .badge .a .img{
+    width : 140px;
+}
+
+@media screen and (max-width: 1400px) {
+    header .badges{
+        left: calc(100vw - 150px);
+    }
+}
+
+/* visual */
+.visual{
+    position: relative;
+    background-image: url("../images/visual_bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 120px;
+    background-size: 106% 100%;
+}
+
+.visual .inner{
+    position: relative;
+    height: 646px;
+    
+}
+
+.visual .inner .slogan{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    justify-content: center;
+    width: 340px;
+    top:145px;
+    left: -60px;
+
+}
+
+.visual .inner .slogan img{
+    width: 340px;
+}
+
+.visual .inner .slogan .btn{}
+
+.visual .inner > img{
+    position: absolute;
+}
+
+.visual .inner > img.item-1{
+    width: 290px;
+    top:120px;
+    left: 340px;
+
+}
+
+.visual .inner > img.item-2{
+    width: 310px;
+    top: 168px;
+    left: 538px;
+}
+
+.visual .inner > img.item-3{
+    width: 310px;
+    top: 122px;
+    left: 762px;
+}
+
+/* notice */
+
+.notice{
+    position: relative;
+}
+
+.notice .notice-line{
+    position: relative;
+    font-weight: 700px;
+}
+
+.notice .notice-line .bg-left{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #111111;
+}
+
+.notice .notice-line .bg-right{
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color:#f6f5ef ;
+}
+
+.notice .notice-line .inner{
+    height: 62px;
+    display: flex;
+
+}
+
+.notice .notice-line .inner .inner__left{
+    position: relative;
+    width: 60%;
+    height: 100%;
+    background-color: #111111;
+    display: flex;
+    align-items: center;
+    color : white;
+}
+.notice .notice-line .inner .inner__left h1{
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+}
+.notice .notice-line .inner .inner__left div{
+    position: absolute;
+    left: 80px;
+    font-size: 14px;
+}
+.notice .notice-line .inner .inner__left a{
+    position: absolute;
+    right: 20px;
+    color: white;
+}
+.notice .notice-line .inner .inner__left a span{
+    font-size: 36px;
+    vertical-align: bottom;
+
+}
+
+.notice .notice-line .inner .inner__right{
+    position: relative;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #f6f5ef;
+}
+.notice .notice-line .inner .inner__right h1{
+    position: absolute;
+    right: 120px;
+    font-size: 16px;
+}
+.notice .notice-line .inner .inner__right a{
+    position: absolute;
+    right: 20px;
+    color: black;
+}
+.notice .notice-line .inner .inner__right a span{
+    font-size: 36px;
+    display: block;
+}
+
+/* rewards */
+.rewards{
+    position: relative;
+    background-color: #1e3932;
+}
+
+.rewards .inner{
+    position: relative;
+    padding: 30px 0 40px 0;
+    display: flex;
+}
+
+.rewards .inner .rewards__logo{
+    display: flex;
+    flex-basis: 260px;
+    justify-content: center;
+    align-items: center;
+}
+
+.rewards .inner .rewards__logo img{
+    display: block;
+    width: 176px;
+}
+
+.rewards .inner .rewards__items{
+    flex-grow: 1;
+
+}
+.rewards .inner .rewards__items .rewards__items__register{
+    position: relative;
+    padding-bottom: 12px;
+    border-bottom: 0.5px solid #c8c8c8;
+
+}
+.rewards .inner .rewards__items .rewards__items__register p{
+    display: block;
+    font-size: 17px;
+    color: white;
+}
+.rewards .inner .rewards__items .rewards__items__register p.subject{
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+.rewards .inner .rewards__items .rewards__items__register .buttons{
+    position: absolute;
+    right: 0;
+    bottom: 12px;
+}
+.rewards .inner .rewards__items .rewards__items__register .buttons .btn--register{
+    background-color: #00704a;
+    border-color: #00704a;
+    color :white;
+    margin-right: 6px;
+}
+.rewards .inner .rewards__items .rewards__items__register .buttons .btn--login,
+.rewards .inner .rewards__items .rewards__items__card .buttons .btn--login{
+    border-color: white;
+    color: white;
+}
+
+.rewards .inner .rewards__items .rewards__items__register .buttons .btn--register:hover,
+.rewards .inner .rewards__items .rewards__items__register .buttons .btn--login:hover,
+.rewards .inner .rewards__items .rewards__items__card .buttons .btn--login:hover{
+    text-decoration: underline;
+}
+
+.rewards .inner .rewards__items .rewards__items__card{
+    position: relative;
+}
+.rewards .inner .rewards__items .rewards__items__card p{
+    font-size: 14px;
+    color : white;
+    display: block;
+    margin-top: 20px;
+}
+.rewards .inner .rewards__items .rewards__items__card .buttons{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.rewards .inner .rewards__items .rewards__items__card .buttons .btn--login{
+ 
 }
